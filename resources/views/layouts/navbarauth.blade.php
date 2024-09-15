@@ -9,13 +9,14 @@
         <div class="hidden lg:flex space-x-8 ml-10">
             <ul class="flex space-x-8">
                 <li><a href="{{ route('home') }}" class="text-white hover:text-gray-200 bg-transparent font-medium rounded-lg text-[15px] px-4 py-2">Home</a></li>
-
+                <li><a href="{{ route('home') }}" class="text-white hover:text-gray-200 bg-transparent font-medium rounded-lg text-[15px] px-4 py-2">Chatea con nuestra IA!!</a></li>
+                <li><a href="{{ route('informacion') }}" class="text-white hover:text-gray-200 bg-transparent font-medium rounded-lg text-[15px] px-4 py-2">Cuenta</a></li>
             </ul>
         </div>
 
         <!-- Botón de Login (visible siempre) -->
-        <a href="{{ route('login') }}" class="text-white bg-redsito hover:bg-redsitoHov focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-[15px] px-4 lg:px-[45px] py-[30px] lg:py-2.5 focus:outline-none ml-auto">
-            Login
+        <a href="{{ route('logout') }}" class="text-white bg-redsito hover:bg-redsitoHov focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-[15px] px-4 lg:px-[45px] py-[30px] lg:py-2.5 focus:outline-none ml-auto">
+            Log Out
         </a>
 
         <!-- Botón de menú móvil (hamburguesa) -->

@@ -24,9 +24,20 @@ Route::middleware('auth')->group(function () {
     Route::post('/transferir', [TransferenciaController::class, 'transferir'])->name('transferir');
 });
 
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [RegisterController::class, 'register']);
-Route::get('/registerStepTwo', [HomeController::class, 'registerStepTwo'])->name('registerStepTwo');
+
+Route::get('/register', [RegisterController::class, 'showRegistrationFormStep1'])->name('register');
+Route::post('/register/step1', [RegisterController::class, 'handleStep1'])->name('register.step1');
+
+Route::get('/register/step2', [RegisterController::class, 'showRegistrationFormStep2'])->name('registerStepTwo');
+Route::post('/register/step2', [RegisterController::class, 'handleStep2'])->name('register.step2');
+
+
+
+
+
+// Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+// Route::post('/register', [RegisterController::class, 'register']);
+// Route::get('/registerStepTwo', [RegisterController::class, 'registerStepTwo'])->name('registerStepTwo');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
