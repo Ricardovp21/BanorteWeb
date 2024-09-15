@@ -27,6 +27,10 @@
                                    Correo electrónico
                             </label>
                         </div>
+                        <!-- Mensaje de error para correo electrónico -->
+                        <div id="email-error" class="hidden text-[#EB0029] text-[12px] mb-4">
+                            El campo de correo electrónico es obligatorio
+                        </div>
 
                         <!-- Campo Contraseña -->
                         <div class="relative mb-4 w-full">
@@ -40,8 +44,12 @@
                                    Contraseña
                             </label>
                         </div>
+                        <!-- Mensaje de error para contraseña -->
+                        <div id="password-error" class="hidden text-[#EB0029] text-[12px] mb-4">
+                            El campo de contraseña es obligatorio
+                        </div>
 
-                        <!-- Confirmación de Contraseña -->
+                        <!-- Campo Confirmación de Contraseña -->
                         <div class="relative mb-4 w-full">
                             <input type="password" 
                                    class="peer w-full h-[50px] pl-5 pt-5 bg-[#F6F6F6] border-b-2 border-[#323E48] text-[15px] text-[#323E48] font-gothamMedium focus:outline-none placeholder-transparent" 
@@ -52,6 +60,10 @@
                                    id="password-confirm-label" style="top: 50%; transform: translateY(-50%);">
                                    Confirmar Contraseña
                             </label>
+                        </div>
+                        <!-- Mensaje de error para confirmar contraseña -->
+                        <div id="password-confirm-error" class="hidden text-[#EB0029] text-[12px] mb-4">
+                            Las contraseñas no coinciden
                         </div>
 
                         <!-- Botón "Finalizar Registro" -->
@@ -64,4 +76,71 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Actualiza la posición de la etiqueta según el estado del input
+    function updateLabelPosition(input) {
+        const label = document.querySelector(`#${input.id}-label`);
+        if (input.value) {
+            label.style.top = '5px';
+            label.style.transform = 'translateY(0)';
+            label.style.fontSize = '12px';
+            label.style.color = '#5B6670';
+        } else {
+            label.style.top = '50%';
+            label.style.transform = 'translateY(-50%)';
+            label.style.fontSize = '15px';
+            label.style.color = '#323E48';
+        }
+    }
+
+    // Validación de los campos
+    document.querySelector('#register-step2').addEventListener('submit', function(event) {
+        event.preventDefault();  // Evita que el formulario se envíe directamente
+
+        const emailField = document.getElementById('email');
+        const passwordField = document.getElementById('password');
+        const passwordConfirmField = document.getElementById('password_confirmation');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+        const passwordConfirmError = document.getElementById('password-confirm-error');
+
+        let isValid = true;
+
+        // Validación del campo de correo electrónico
+        if (!emailField.value) {
+            emailError.classList.remove('hidden');
+            emailField.classList.add('border-red-500');
+            isValid = false;
+        } else {
+            emailError.classList.add('hidden');
+            emailField.classList.remove('border-red-500');
+        }
+
+        // Validación del campo de contraseña
+        if (!passwordField.value) {
+            passwordError.classList.remove('hidden');
+            passwordField.classList.add('border-red-500');
+            isValid = false;
+        } else {
+            passwordError.classList.add('hidden');
+            passwordField.classList.remove('border-red-500');
+        }
+
+        // Validación de la confirmación de contraseña
+        if (!passwordConfirmField.value || passwordConfirmField.value !== passwordField.value) {
+            passwordConfirmError.classList.remove('hidden');
+            passwordConfirmField.classList.add('border-red-500');
+            isValid = false;
+        } else {
+            passwordConfirmError.classList.add('hidden');
+            passwordConfirmField.classList.remove('border-red-500');
+        }
+
+        // Si todos los campos son válidos, enviar el formulario
+        if (isValid) {
+            event.target.submit();
+        }
+    });
+</script>
 @endsection
