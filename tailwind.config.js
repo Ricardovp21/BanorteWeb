@@ -6,11 +6,15 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    colors: {
-      'redsito' : '#EB0029',
+    extend: {
+      colors: {
+        'redsito': '#EB0029',
+        'redsitoHov': "#DB0026",
+      },
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif'],
+      },
     },
-    extend: {},
   },
   plugins: [],
 }
-
