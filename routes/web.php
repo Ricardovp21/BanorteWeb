@@ -13,7 +13,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/categorias', function () {    return view('categorias');});
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/informacion', [InformacionController::class, 'show'])->name('informacion');
+
+
+
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
