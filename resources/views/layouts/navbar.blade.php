@@ -13,10 +13,10 @@
             </ul>
         </div>
 
-        <!-- Botón de Login (visible siempre) -->
-        <a href="{{ route('login') }}" class="text-white bg-redsito hover:bg-redsitoHov focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-[15px] px-4 lg:px-[45px] py-[30px] lg:py-2.5 focus:outline-none ml-auto">
-            Login
+        <a href="{{ auth()->check() ? route('informacion') : route('login') }}" class="text-white bg-redsito hover:bg-redsitoHov focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-[15px] px-4 lg:px-[45px] py-[30px] lg:py-2.5 focus:outline-none ml-auto">
+            {{ auth()->check() ? 'Ir a Información' : 'Login' }}
         </a>
+
 
         <!-- Botón de menú móvil (hamburguesa) -->
         <button id="menu-toggle" class="lg:hidden inline-flex items-center p-2 ml-1 text-[15px] text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
@@ -34,7 +34,7 @@
     <div id="mobile-menu" class="hidden lg:hidden">
         <ul class="flex flex-col items-center space-y-4 py-4">
             <li><a href="{{ route('home') }}" class="text-white hover:text-gray-200 bg-transparent font-medium rounded-lg text-[15px] px-4 py-2">Home</a></li>
-            
+
         </ul>
     </div>
 </nav>
