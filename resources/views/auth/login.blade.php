@@ -16,22 +16,22 @@
                         <!-- Campo Correo Electrónico -->
                         <div class="relative mb-4 w-full">
                             <input type="email" 
-                                   class="peer w-full h-[50px] pl-5 pt-5 pb-2 bg-[#F6F6F6] border-b-2 border-[#323E48] text-[15px] text-[#323E48] font-gothamMedium focus:outline-none placeholder-transparent" 
-                                   placeholder=" " id="email" required />
+                                class="peer w-full h-[50px] pl-5 pt-5 pb-2 bg-[#F6F6F6] border-b-2 border-[#323E48] text-[15px] text-[#323E48] font-gothamMedium focus:outline-none placeholder-transparent" 
+                                placeholder=" " id="email" required />
                             <label for="email" 
-                                   class="absolute left-5 top-[14px] text-[#323E48] text-[15px] font-gothamMedium transition-all peer-placeholder-shown:top-[14px] peer-placeholder-shown:text-[15px] peer-placeholder-shown:text-[#323E48] peer-focus:top-2 peer-focus:left-5 peer-focus:text-[12px] peer-focus:text-[#5B6670]">
-                                   Correo electrónico
+                                class="absolute left-5 top-[14px] text-[#323E48] text-[15px] font-gothamMedium transition-all peer-placeholder-shown:top-[14px] peer-placeholder-shown:text-[15px] peer-placeholder-shown:text-[#323E48] peer-focus:top-2 peer-focus:left-5 peer-focus:text-[12px] peer-focus:text-[#5B6670]">
+                                Correo electrónico
                             </label>
                         </div>
                         
                         <!-- Campo Número de Tarjeta -->
                         <div class="relative mb-4 w-full">
                             <input type="text" 
-                                   class="peer w-full h-[50px] pl-5 pt-5 pb-2 bg-[#F6F6F6] border-b-2 border-[#323E48] text-[15px] text-[#323E48] font-gothamMedium focus:outline-none placeholder-transparent" 
-                                   placeholder=" " id="card-number" pattern="[0-9]{16}" required />
+                                class="peer w-full h-[50px] pl-5 pt-5 pb-2 bg-[#F6F6F6] border-b-2 border-[#323E48] text-[15px] text-[#323E48] font-gothamMedium focus:outline-none placeholder-transparent" 
+                                placeholder=" " id="card-number" pattern="[0-9]{16}" required />
                             <label for="card-number" 
-                                   class="absolute left-5 top-[14px] text-[#323E48] text-[15px] font-gothamMedium transition-all peer-placeholder-shown:top-[14px] peer-placeholder-shown:text-[15px] peer-placeholder-shown:text-[#323E48] peer-focus:top-2 peer-focus:left-5 peer-focus:text-[12px] peer-focus:text-[#5B6670]">
-                                   Número de tarjeta
+                                class="absolute left-5 top-[14px] text-[#323E48] text-[15px] font-gothamMedium transition-all peer-placeholder-shown:top-[14px] peer-placeholder-shown:text-[15px] peer-placeholder-shown:text-[#323E48] peer-focus:top-2 peer-focus:left-5 peer-focus:text-[12px] peer-focus:text-[#5B6670]">
+                                Número de tarjeta
                             </label>
                         </div>
 
