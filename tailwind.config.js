@@ -11,6 +11,9 @@ export default {
         'redsito': '#EB0029',
         'redsitoHov': "#DB0026",
       },
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif'],
+      },
     },
   },
   plugins: [],

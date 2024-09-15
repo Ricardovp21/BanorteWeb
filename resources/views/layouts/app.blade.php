@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
     <title>Document</title>
 </head>
-<body>
+<body class="font-roboto">
     @include('layouts.navbar')
 
     <div>
