@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/register', [RegisterController::class, 'showRegistrationFormStep1'])->name('register');
 Route::post('/register/step1', [RegisterController::class, 'handleStep1'])->name('register.step1');
 
-Route::get('/register/step2', [RegisterController::class, 'showRegistrationFormStep2'])->name('registerStepTwo');
+Route::get('/register/step2', [RegisterController::class, 'showRegistrationFormStep2'])->name('register2');
 Route::post('/register/step2', [RegisterController::class, 'handleStep2'])->name('register.step2');
 
 
