@@ -17,21 +17,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/categorias', function () {    return view('categorias');});
 
 Route::get('/informacion', [InformacionController::class, 'show'])->name('informacion');
-
-
-
-
-
-
     
 Route::middleware('auth')->group(function () {
     Route::get('/transferir', [TransferenciaController::class, 'showForm'])->name('transferir.form');
     Route::post('/transferir', [TransferenciaController::class, 'transferir'])->name('transferir');
 });
 
-
-
-// Rutas de autenticación (registro e inicio de sesión)
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -48,5 +39,3 @@ Route::middleware('auth')->group(function () {
     Route::get('/onboarding', [OnboardingController::class, 'show'])->name('onboarding.show');
     Route::post('/onboarding', [OnboardingController::class, 'store'])->name('onboarding.store');
 });
-
-Auth::routes();
