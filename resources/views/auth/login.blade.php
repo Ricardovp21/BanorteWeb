@@ -123,7 +123,9 @@
         }
 
         if (isValid) {
-            document.getElementById('login-form').submit(); // Envía el formulario si es válido
+            document.getElementById('login-form').submit();
+           
+            // Envía el formulario si es válido
         }
     }
 </script>
