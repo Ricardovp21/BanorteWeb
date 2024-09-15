@@ -13,6 +13,8 @@ export default {
       },
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif'],
+        'gotham': ['Gotham-Medium', 'sans-serif'],
+        'gothamBook': ['Gotham-Book', 'sans-serif'],
       },
     },
   },

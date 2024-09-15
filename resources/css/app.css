@@ -10,4 +10,16 @@
         font-display: swap;
         src: url(/fonts/Roboto/Roboto-Regular.ttf) format('ttf');
     }
+
+    @font-face {
+        font-family: 'Gotham-Medium';
+        font-size: normal;
+        src: url(/fonts/Gotham/Gotham-Medium.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: 'Gotham-Book';
+        font-size: normal;
+        src: url(/fonts/Gotham/Gotham-Book.ttf) format('ttf');
+    }
 }

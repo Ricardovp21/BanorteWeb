@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
-    <title>Document</title>
+    <title>Banorte</title>
 </head>
-<body class="font-roboto">
+<body class="">
     @include('layouts.navbar')
 
-    <div>
+    <div class="mx-auto">
         @yield('content')
     </div>
+
 </body>
 </html>
