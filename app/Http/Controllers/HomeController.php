@@ -10,4 +10,9 @@ class HomeController extends Controller
     {
         return view('index');
     }
+
+    public function registerStepTwo()
+    {
+        return view('auth.register2');
+    }
 }

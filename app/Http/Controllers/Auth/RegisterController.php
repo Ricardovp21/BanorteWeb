@@ -13,6 +13,7 @@ use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
+
     use RegistersUsers;
 
     protected $redirectTo = '/home';
