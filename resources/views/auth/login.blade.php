@@ -5,14 +5,13 @@
     <div class="flex h-screen items-center justify-center p-10">
         <div class="xl:w-1/2 w-full rounded border border-blue-800 md:shadow-xl">
             <div class="grid md:grid-cols-2 p-5">
-                <div class="">
-                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/login-10299071-8333958.png?f=webp" alt="" />
+                <div class="flex items-center justify-center">
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/login-10299071-8333958.png?f=webp" alt="" class="max-w-full h-auto" />
                 </div>
                 <div class="flex items-center justify-center w-full">
                     <form action="{{ route('login') }}" method="POST" class="w-full">
                         @csrf
-                        <h1 class="text-center font-gothamBook uppercase text-redsito">User login</h1>
-                        <br />
+                        <h1 class="text-center font-gothamBook uppercase text-redsito mb-6">User login</h1>
                         
                         <!-- Campo Correo Electrónico -->
                         <div class="relative mb-4 w-full">
@@ -51,7 +50,15 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="w-full rounded bg-redsito hover:bg-redsitoHov px-5 py-3 font-semibold text-white">Login</button>
+                        <button type="submit" class="w-full rounded bg-redsito hover:bg-redsitoHov px-5 py-3 font-semibold text-white mb-6">Login</button>
+                        
+                        <div class="flex justify-center items-center my-6">
+                            <div class="w-full h-[1px] bg-gray-300"></div>
+                            <span class="px-4 text-gray-500">o</span>
+                            <div class="w-full h-[1px] bg-gray-300"></div>
+                        </div>
+                        
+                        <button type="button" class="w-full rounded bg-white border-2 border-[#323E48] hover:border-redsito hover:text-redsito px-5 py-3 font-semibold text-[#323E48]">Registro</button>
                     </form>
                 </div>
             </div>
@@ -72,7 +79,7 @@
         } else {
             // Si está vacío, vuelve al centro
             label.style.top = '50%';
-            label.style.transform = 'translateY(50%)';
+            label.style.transform = 'translateY(-50%)';
             label.style.fontSize = '15px';
             label.style.color = '#323E48';
         }
