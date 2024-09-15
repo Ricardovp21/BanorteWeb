@@ -8,6 +8,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\InformacionController;
+use App\Http\Controllers\TransferenciaController;
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -27,6 +29,16 @@ Route::get('/informacion', [InformacionController::class, 'show'])->name('inform
 
 // Ruta de inicio
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+
+    
+Route::middleware('auth')->group(function () {
+    Route::get('/transferir', [TransferenciaController::class, 'showForm'])->name('transferir.form');
+    Route::post('/transferir', [TransferenciaController::class, 'transferir'])->name('transferir');
+});
+
+
 
 // Rutas de autenticación (registro e inicio de sesión)
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
