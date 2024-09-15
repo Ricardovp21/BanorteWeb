@@ -91,9 +91,7 @@
 
         </div>
     </div>
-@endsection
-
-@push('styles')
+    @push('styles')
     <style>
         body {
             background-color: black;
@@ -182,3 +180,6 @@
         });
     </script>
 @endpush
+
+@endsection
+

@@ -7,7 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OnboardingController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\InformacionController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
