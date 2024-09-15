@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appauth')
 
 @section('content')
 <div class="bg-gray-50 text-gray-800 font-sans text-sm">
