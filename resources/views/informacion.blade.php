@@ -44,7 +44,7 @@
             <div class="container mx-auto flex justify-between">
                 <div class="flex items-start">
                     <svg class="mr-6" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
-                        
+                        <!-- SVG content -->
                     </svg>
                     <div>
                         <h1 class="text-2xl font-normal mb-2">Hola, {{ $user->name }}!</h1>
@@ -53,12 +53,12 @@
             </div>
         </section>
 
-       
+        <!-- Información de saldo real -->
         <section class="py-8">
             <div class="container mx-auto">
                 <div class="grid grid-cols-12 gap-8">
                     <div class="col-span-4">
-                
+                        <!-- Saldo real de la cuenta -->
                         <div class="bg-white shadow-sm rounded mb-8">
                             <div class="border-b p-6">
                                 <div class="text-xs uppercase text-gray-500 mb-2">Saldo actual</div>
@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="col-span-8">
-                     
+                        <!-- Movimientos recientes -->
                         <div class="bg-white shadow-sm rounded mb-8">
                             <div class="border-b p-6">
                                 <h3 class="text-lg font-medium">Movimientos recientes</h3>
@@ -100,7 +100,7 @@
                             </ul>
                         </div>
 
-                   
+                        <!-- Tarjetas de la cuenta -->
                         <div class="bg-white shadow-sm rounded mb-8">
                             <div class="border-b p-6">
                                 <h3 class="text-lg font-medium">Tus Tarjetas</h3>
@@ -114,7 +114,7 @@
                                                 <p class="text-gray-500">Expira: {{ $card->fecha_expiracion->format('m/Y') }}</p>
                                             </div>
                                             <div class="flex space-x-4">
-                                                <button class="show-hide-btn" data-card-id="{{ $card->id }}" onclick="toggleCardNumber( '{{ $card->id }}')">
+                                                <button class="show-hide-btn" data-card-id="{{ $card->id }}" onclick="toggleCardNumber({{ $card->id }})">
                                                     Mostrar
                                                 </button>
                                                 <button class="copy-btn" onclick="copyToClipboard('card-{{ $card->id }}')">
@@ -143,10 +143,11 @@
         const cardNumberElement = document.getElementById(`card-${cardId}`);
         const button = document.querySelector(`button[data-card-id="${cardId}"]`);
         if (cardNumberElement.classList.contains('hidden-card')) {
-            cardNumberElement.textContent = '{{ $card->numero_tarjeta }}';
+            cardNumberElement.textContent = '{{ $card->numero_tarjeta }}'; // Muestra el número completo
+            cardNumberElement.classList.remove('hidden-card');
             button.textContent = 'Ocultar';
         } else {
-            cardNumberElement.textContent = '**** **** **** {{ substr($card->numero_tarjeta, -4) }}';
+            cardNumberElement.textContent = '**** **** **** {{ substr($card->numero_tarjeta, -4) }}'; // Oculta el número
             cardNumberElement.classList.add('hidden-card');
             button.textContent = 'Mostrar';
         }
