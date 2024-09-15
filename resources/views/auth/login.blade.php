@@ -31,27 +31,21 @@
                             El campo de correo es obligatorio
                         </div>
 
-                        <!-- Campo Número de Tarjeta -->
+                        <!-- Campo Contraseña -->
                         <div class="relative mb-1 w-full">
-                            <input type="text" pattern="[0-9]*" inputmode="numeric" 
+                            <input type="password" 
                                    class="peer w-full h-[50px] pl-5 pt-5 bg-[#F6F6F6] border-b-2 border-[#323E48] text-[15px] text-[#323E48] font-gothamMedium focus:outline-none placeholder-transparent" 
-                                   id="card-number" name="card_number" maxlength="16"
-                                   oninput="updateCardCounter(); updateLabelPosition(this)" onkeypress="return isNumberKey(event)" />
-                            <label for="card-number" 
+                                   id="password" name="password"
+                                   oninput="updateLabelPosition(this)" />
+                            <label for="password" 
                                    class="absolute left-5 text-[#323E48] text-[15px] font-gothamMedium transition-all duration-200 origin-[0] transform"
-                                   id="card-number-label" style="top: 50%; transform: translateY(-50%);">
-                                   Número de tarjeta
+                                   id="password-label" style="top: 50%; transform: translateY(-50%);">
+                                   Contraseña
                             </label>
                         </div>
                         <!-- Mensaje de error fuera del div del input -->
-                        <div id="card-error" class="hidden text-[#EB0029] text-[12px] mb-4">
-                            El campo de número de tarjeta es obligatorio
-                        </div>
-
-                        <!-- Contador de dígitos siempre visible mientras se escribe -->
-                        <div class="flex justify-between text-[#5B6670] text-[12px] mb-4" id="digit-counter-container">
-                            <span>16 Dígitos</span>
-                            <span id="card-counter">0/16</span>
+                        <div id="password-error" class="hidden text-[#EB0029] text-[12px] mb-4">
+                            El campo de contraseña es obligatorio
                         </div>
 
                         <!-- Enlace de Login -->
@@ -72,28 +66,6 @@
 </div>
 
 <script>
-    // Bloquear la entrada de letras, solo permitir números
-    function isNumberKey(evt) {
-        var charCode = evt.which ? evt.which : evt.keyCode;
-        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-            return false;
-        }
-        return true;
-    }
-
-    // Actualiza el contador de dígitos mientras se escribe
-    function updateCardCounter() {
-        const cardNumberField = document.getElementById('card-number');
-        const cardCounter = document.getElementById('card-counter');
-        const digitCounterContainer = document.getElementById('digit-counter-container');
-        
-        // Mostrar el contador solo cuando el campo tiene texto
-        if (cardNumberField.value.length > 0) {
-            digitCounterContainer.classList.remove('hidden');
-            cardCounter.textContent = `${cardNumberField.value.length}/16`;
-        }
-    }
-
     // Actualiza la posición de la etiqueta según el estado del input
     function updateLabelPosition(input) {
         const label = document.querySelector(`#${input.id}-label`);
@@ -124,10 +96,9 @@
     // Validación del formulario
     function submitLoginForm() {
         const emailField = document.getElementById('email');
-        const cardNumberField = document.getElementById('card-number');
+        const passwordField = document.getElementById('password');
         const emailError = document.getElementById('email-error');
-        const cardError = document.getElementById('card-error');
-        const digitCounterContainer = document.getElementById('digit-counter-container');
+        const passwordError = document.getElementById('password-error');
 
         let isValid = true;
 
@@ -141,19 +112,14 @@
             emailField.classList.remove('border-red-500');
         }
 
-        // Validación del campo de número de tarjeta
-        if (!cardNumberField.value) {
-            cardError.classList.remove('hidden');
-            cardNumberField.classList.add('border-red-500');
-            digitCounterContainer.classList.add('hidden'); // Ocultar contador si no hay texto
-            isValid = false;
-        } else if (cardNumberField.value.length !== 16) {
-            cardError.classList.remove('hidden');
-            cardNumberField.classList.add('border-red-500');
+        // Validación del campo de contraseña
+        if (!passwordField.value) {
+            passwordError.classList.remove('hidden');
+            passwordField.classList.add('border-red-500');
             isValid = false;
         } else {
-            cardError.classList.add('hidden');
-            cardNumberField.classList.remove('border-red-500');
+            passwordError.classList.add('hidden');
+            passwordField.classList.remove('border-red-500');
         }
 
         if (isValid) {
