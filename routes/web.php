@@ -18,6 +18,7 @@ Route::get('/categorias', function () {    return view('categorias');});
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/informacion', [InformacionController::class, 'show'])->name('informacion');
 
 
     
