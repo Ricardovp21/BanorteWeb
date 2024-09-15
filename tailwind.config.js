@@ -6,6 +6,9 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
+    colors: {
+      'redsito' : '#EB0029',
+    },
     extend: {},
   },
   plugins: [],
