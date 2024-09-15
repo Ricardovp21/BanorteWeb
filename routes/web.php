@@ -41,3 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/onboarding', [OnboardingController::class, 'show'])->name('onboarding.show');
     Route::post('/onboarding', [OnboardingController::class, 'store'])->name('onboarding.store');
 });
+
+use App\Http\Controllers\ChatController;
+
+Route::post('/chatbot', [ChatController::class, 'sendMessage']);
+route::get('/chatbott', function () {    return view('chatbot');});
