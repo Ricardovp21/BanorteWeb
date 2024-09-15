@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
@@ -15,19 +16,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/categorias', function () {    return view('categorias');});
 
-Route::get('/informacion', [InformacionController::class, 'show'])->name('informacion');
-
-// Autenticación
-
-// // Rutas protegidas por autenticación
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
-//     Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
-//     Route::get('/onboarding', [OnboardingController::class, 'show'])->name('onboarding.show');
-//     Route::post('/onboarding', [OnboardingController::class, 'store'])->name('onboarding.store');
-// });
-
-// Ruta de inicio
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
@@ -59,4 +47,3 @@ Route::middleware('auth')->group(function () {
 });
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
