@@ -12,20 +12,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/categorias', function () {    return view('categorias');});
-// Autenticación
 
-// // Rutas protegidas por autenticación
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
-//     Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
-//     Route::get('/onboarding', [OnboardingController::class, 'show'])->name('onboarding.show');
-//     Route::post('/onboarding', [OnboardingController::class, 'store'])->name('onboarding.store');
-// });
-
-// Ruta de inicio
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Rutas de autenticación (registro e inicio de sesión)
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
