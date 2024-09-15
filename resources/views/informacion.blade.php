@@ -15,22 +15,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto flex space-x-6 border-l pl-4">
                     <li class="nav-item active">
-                        <a class="nav-link text-gray-700 hover:text-blue-600" href="#">Summary</a>
+                        <a class="nav-link text-gray-700 hover:text-blue-600" href="#">Resumen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-gray-700 hover:text-blue-600" href="#">Activity</a>
+                        <a class="nav-link text-gray-700 hover:text-blue-600" href="#">Actividad</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-gray-700 hover:text-blue-600" href="#">Send & Request</a>
+                        <a class="nav-link text-gray-700 hover:text-blue-600" href="#">Enviar & Solicitar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-gray-700 hover:text-blue-600" href="#">Wallet</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-gray-700 hover:text-blue-600" href="#">Offers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-gray-700 hover:text-blue-600" href="#">Help</a>
                     </li>
                 </ul>
                 <div class="flex space-x-4">
@@ -44,124 +38,158 @@
             </div>
         </nav>
     </header>
+
     <main>
         <section class="bg-white border-b py-8">
             <div class="container mx-auto flex justify-between">
                 <div class="flex items-start">
                     <svg class="mr-6" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
-                        <!-- SVG content -->
+                        
                     </svg>
                     <div>
-                        <h1 class="text-2xl font-normal mb-2">Hi there, Frederick!</h1>
-                        <div class="mb-3">
-                            <select class="custom-select border-gray-300 shadow-sm text-sm">
-                                <option selected>Spend Your Money!</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
+                        <h1 class="text-2xl font-normal mb-2">Hola, {{ $user->name }}!</h1>
                     </div>
-                </div>
-                <div class="flex space-x-6">
-                    <button class="flex flex-col items-center">
-                        <img class="mb-2" src="./images/icon-money.svg" alt="Money Icon">
-                        <span class="text-sm">Send money</span>
-                    </button>
-                    <button class="flex flex-col items-center">
-                        <img class="mb-2" src="./images/icon-cart.svg" alt="Cart Icon">
-                        <span class="text-sm">Shopping deals</span>
-                    </button>
                 </div>
             </div>
         </section>
+
+       
         <section class="py-8">
             <div class="container mx-auto">
                 <div class="grid grid-cols-12 gap-8">
                     <div class="col-span-4">
+                
                         <div class="bg-white shadow-sm rounded mb-8">
                             <div class="border-b p-6">
-                                <div class="text-xs uppercase text-gray-500 mb-2">Payment Balance</div>
-                                <h3 class="text-2xl font-light">$52,100.00</h3>
-                                <a class="text-gray-500 hover:text-gray-600" href="#">Details →</a>
-                            </div>
-                            <div class="p-6">
-                                <div class="text-xs uppercase text-gray-500 mb-4">Available Currencies</div>
-                                <dl class="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <dt>US Dollars</dt>
-                                        <dd class="text-right">32,220.00 USD</dd>
-                                    </div>
-                                    <div>
-                                        <dt>British Pounds</dt>
-                                        <dd class="text-right">8,560.00 GBP</dd>
-                                    </div>
-                                    <div>
-                                        <dt>Czech Koruna</dt>
-                                        <dd class="text-right">98,444.00 CZK</dd>
-                                    </div>
-                                </dl>
-                                <hr class="my-6 border-t">
-                                <ul class="list-none space-y-2">
-                                    <li><a class="text-blue-600 hover:underline" href="#">Add Money →</a></li>
-                                    <li><a class="text-blue-600 hover:underline" href="#">Top Up →</a></li>
-                                    <li><a class="text-blue-600 hover:underline" href="#">Add funds using PayBuddy →</a></li>
-                                    <li><a class="text-blue-600 hover:underline" href="#">Withdraw funds →</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="bg-white shadow-sm rounded">
-                            <div class="p-6">
-                                <div class="text-xs uppercase text-gray-500 mb-4">Bank accounts and cards</div>
-                                <ul class="space-y-4">
-                                    <li class="flex items-center">
-                                        <img class="mr-4" src="./images/icon-bank-of-america.svg" alt="Bank of America">
-                                        <span>Bank of America x-9966</span>
-                                    </li>
-                                    <li class="flex items-center">
-                                        <img class="mr-4" src="./images/icon-mastercard.svg" alt="MasterCard">
-                                        <span>MasterCard x-1144</span>
-                                    </li>
-                                </ul>
-                                <hr class="my-6 border-t">
-                                <a class="text-blue-600 hover:underline" href="#">Add a Bank Account or Card →</a>
+                                <div class="text-xs uppercase text-gray-500 mb-2">Saldo actual</div>
+                                <h3 class="text-2xl font-light">${{ number_format($account->saldo, 2) }}</h3>
+                                <a class="text-gray-500 hover:text-gray-600" href="#">Detalles →</a>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-span-8">
-                        <div class="bg-blue-600 text-white p-4 mb-8 flex items-start">
-                            <img class="mr-4" src="./images/icon-alert.svg" alt="Alert Icon">
-                            <span>Your latest transaction may take a few minutes to show up in your activity.</span>
-                        </div>
-                        <!-- Pending and Completed Cards -->
+                     
                         <div class="bg-white shadow-sm rounded mb-8">
                             <div class="border-b p-6">
-                                <h3 class="text-lg font-medium">Pending</h3>
-                                <a class="text-gray-500 hover:text-gray-600" href="#">See all →</a>
+                                <h3 class="text-lg font-medium">Movimientos recientes</h3>
+                                <a class="text-gray-500 hover:text-gray-600" href="#">Ver todos →</a>
                             </div>
                             <ul class="divide-y">
-                                <li class="p-6 flex justify-between">
-                                    <div>
-                                        <span class="block text-2xl font-light">28</span>
-                                        <span class="text-xs uppercase text-gray-500">Jul</span>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-medium">Bank of America</h4>
-                                        <p class="text-gray-500 text-sm">Withdraw to bank account</p>
-                                    </div>
-                                    <div class="text-right">
-                                        <span class="text-green-500 font-medium">+250.00</span>
-                                        <span class="block text-xs text-gray-500">USD</span>
-                                    </div>
-                                </li>
-                                <!-- Additional items can follow similar structure -->
+                                @forelse($account->movimientos as $movimiento)
+                                    <li class="p-6 flex justify-between">
+                                        <div>
+                                            <span class="block text-2xl font-light">{{ $movimiento->created_at->format('d') }}</span>
+                                            <span class="text-xs uppercase text-gray-500">{{ $movimiento->created_at->format('M') }}</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium">{{ $movimiento->descripcion }}</h4>
+                                            <p class="text-gray-500 text-sm">{{ ucfirst($movimiento->tipo) }}</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="{{ $movimiento->monto > 0 ? 'text-green-500' : 'text-red-500' }} font-medium">
+                                                {{ $movimiento->monto > 0 ? '+' : '' }}{{ number_format($movimiento->monto, 2) }}
+                                            </span>
+                                        </div>
+                                    </li>
+                                @empty
+                                    <li class="p-6">
+                                        <p class="text-gray-500">No hay movimientos recientes.</p>
+                                    </li>
+                                @endforelse
                             </ul>
                         </div>
-                        <!-- Completed Transactions Card -->
+
+                   
+                        <div class="bg-white shadow-sm rounded mb-8">
+                            <div class="border-b p-6">
+                                <h3 class="text-lg font-medium">Tus Tarjetas</h3>
+                            </div>
+                            <div class="p-6">
+                                @forelse($account->cards as $card)
+                                    <div class="border p-4 rounded mb-4">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <h4 class="font-medium">{{ ucfirst($card->tipo_tarjeta) }} Card</h4>
+                                                <p class="text-gray-500">Expira: {{ $card->fecha_expiracion->format('m/Y') }}</p>
+                                            </div>
+                                            <div class="flex space-x-4">
+                                                <button class="show-hide-btn" data-card-id="{{ $card->id }}" onclick="toggleCardNumber( '{{ $card->id }}')">
+                                                    Mostrar
+                                                </button>
+                                                <button class="copy-btn" onclick="copyToClipboard('card-{{ $card->id }}')">
+                                                    Copiar
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <p class="mt-4">
+                                            <span id="card-{{ $card->id }}" class="hidden-card">**** **** **** {{ substr($card->numero_tarjeta, -4) }}</span>
+                                        </p>
+                                    </div>
+                                @empty
+                                    <p>No tienes tarjetas asociadas a esta cuenta.</p>
+                                @endforelse
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 </div>
+
+<script>
+    function toggleCardNumber(cardId) {
+        const cardNumberElement = document.getElementById(`card-${cardId}`);
+        const button = document.querySelector(`button[data-card-id="${cardId}"]`);
+        if (cardNumberElement.classList.contains('hidden-card')) {
+            cardNumberElement.textContent = '{{ $card->numero_tarjeta }}';
+            button.textContent = 'Ocultar';
+        } else {
+            cardNumberElement.textContent = '**** **** **** {{ substr($card->numero_tarjeta, -4) }}';
+            cardNumberElement.classList.add('hidden-card');
+            button.textContent = 'Mostrar';
+        }
+    }
+
+    function copyToClipboard(elementId) {
+        const textToCopy = document.getElementById(elementId).textContent;
+        const textarea = document.createElement('textarea');
+        textarea.value = textToCopy;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert('Número de tarjeta copiado al portapapeles');
+    }
+</script>
+
+<style>
+    .hidden-card {
+        font-size: 1.2rem;
+        font-family: 'Courier New', Courier, monospace;
+        letter-spacing: 2px;
+    }
+
+    .show-hide-btn {
+        background-color: #1a202c;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .copy-btn {
+        background-color: #2b6cb0;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .show-hide-btn:hover,
+    .copy-btn:hover {
+        opacity: 0.8;
+    }
+</style>
 @endsection

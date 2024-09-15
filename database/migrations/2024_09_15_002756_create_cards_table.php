@@ -15,7 +15,7 @@ class CreateCardsTable extends Migration
             $table->enum('tipo_tarjeta', ['credito', 'debito']);
             $table->date('fecha_expiracion');
             $table->string('cvv', 4);
-            $table->decimal('limite_credito', 15, 2)->nullable(); // Solo para tarjetas de crédito
+            // $table->decimal('limite_credito', 15, 2)->nullable(); TARJETAS DE CREDITO
             $table->timestamps();
         });
     }

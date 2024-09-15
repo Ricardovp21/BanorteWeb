@@ -17,4 +17,12 @@ class Account extends Model
     {
         return $this->hasMany(Card::class);
     }
+    
+
+public function movimientos()
+{
+    return $this->hasMany(Movimiento::class);
 }
+
+}
+

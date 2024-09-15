@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
@@ -8,7 +9,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\InformacionController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\TransferenciaController;
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -16,6 +18,17 @@ Route::get('/categorias', function () {    return view('categorias');});
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
+
+    
+Route::middleware('auth')->group(function () {
+    Route::get('/transferir', [TransferenciaController::class, 'showForm'])->name('transferir.form');
+    Route::post('/transferir', [TransferenciaController::class, 'transferir'])->name('transferir');
+});
+
+
+
+// Rutas de autenticación (registro e inicio de sesión)
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
