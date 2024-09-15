@@ -7,10 +7,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OnboardingController;
+use App\Http\Controllers\InformacionController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/categorias', function () {    return view('categorias');});
+
+Route::get('/informacion', [InformacionController::class, 'show'])->name('informacion');
+
 // Autenticación
 
 // // Rutas protegidas por autenticación
