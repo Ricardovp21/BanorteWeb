@@ -13,6 +13,8 @@ use App\Http\Controllers\TransferenciaController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/', [HomeController::class, 'index'])->name('casa');
+
 
 
 Route::get('/categorias', function () {    return view('categorias');});

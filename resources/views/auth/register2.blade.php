@@ -9,7 +9,8 @@
                     <img src="{{ asset('img/Logo.png') }}" alt="" class="max-w-full h-auto" />
                 </div>
                 <div class="flex items-center justify-center w-full">
-                    <form id="register-step2" action="{{ route('register.step2') }}" method="POST" class="w-full">
+                    <!-- Cambié la acción del formulario a la ruta principal -->
+                    <form id="register-step2" action="{{ route('home') }}" method="POST" class="w-full">
                         @csrf
                         <h1 class="text-center font-gothamBook uppercase text-redsito mb-6">Registro - Paso 2</h1>
 
@@ -54,7 +55,7 @@
                         </div>
 
                         <!-- Botón "Finalizar Registro" -->
-                        <button type="submit" class="w-full rounded bg-redsito hover:bg-redsitoHov px-5 py-3 font-semibold text-white text-center block mb-6">
+                        <button type="submit"  class="w-full rounded bg-redsito hover:bg-redsitoHov px-5 py-3 font-semibold text-white text-center block mb-6">
                             Finalizar Registro
                         </button>
                     </form>
