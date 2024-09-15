@@ -32,10 +32,10 @@
                         
                         <!-- Campo Número de Tarjeta -->
                         <div class="relative mb-4 w-full">
-                            <input type="text" 
+                            <input type="text" pattern="[0-9]*" inputmode="numeric" 
                                    class="peer w-full h-[50px] pl-5 pt-5 bg-[#F6F6F6] border-b-2 border-[#323E48] text-[15px] text-[#323E48] font-gothamMedium focus:outline-none placeholder-transparent" 
                                    id="card-number" name="card_number" maxlength="16" required
-                                   oninput="updateLabelPosition(this)" />
+                                   oninput="updateLabelPosition(this)" onkeypress="return isNumberKey(event)" />
                             <label for="card-number" 
                                    class="absolute left-5 text-[#323E48] text-[15px] font-gothamMedium transition-all duration-200 origin-[0] transform"
                                    id="card-number-label" style="top: 50%; transform: translateY(-50%);">
@@ -67,6 +67,15 @@
 </div>
 
 <script>
+    // Bloquear la entrada de letras, solo permitir números
+    function isNumberKey(evt) {
+        var charCode = evt.which ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+
     function updateLabelPosition(input) {
         const label = document.querySelector(`#${input.id}-label`);
         
@@ -108,6 +117,7 @@
 
         let isValid = true;
 
+        // Validación del campo de correo
         if (!emailField.value) {
             emailError.classList.remove('hidden');
             emailField.classList.add('border-red-500');
@@ -117,8 +127,15 @@
             emailField.classList.remove('border-red-500');
         }
 
+        // Validación del campo de número de tarjeta
         if (cardNumberField.value.length !== 16) {
             cardError.classList.remove('hidden');
+            cardError.textContent = 'El número de tarjeta debe tener exactamente 16 dígitos.';
+            cardNumberField.classList.add('border-red-500');
+            isValid = false;
+        } else if (!/^\d+$/.test(cardNumberField.value)) {
+            cardError.classList.remove('hidden');
+            cardError.textContent = 'Solo se permiten números.';
             cardNumberField.classList.add('border-red-500');
             isValid = false;
         } else {
