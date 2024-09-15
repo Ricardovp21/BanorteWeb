@@ -9,9 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OnboardingController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-<<<<<<< Updated upstream
 
-=======
 Route::get('/categorias', function () {    return view('categorias');});
 // Autenticación
 
@@ -27,7 +25,6 @@ Route::get('/categorias', function () {    return view('categorias');});
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Rutas de autenticación (registro e inicio de sesión)
->>>>>>> Stashed changes
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
