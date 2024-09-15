@@ -1,7 +1,7 @@
-<nav class="bg-[#eb0029] relative border-gray-200 py-2.5 font-gotham">
+<nav class="bg-[#eb0029] relative border-gray-200 py-2.5 font-gotham" style="background-image: url('{{ asset('img/navigation.png') }}'); background-repeat: repeat-x; background-position: center top; background-size: auto 100%;">
     <div class="flex items-center justify-between max-w-screen-xl px-4 mx-auto relative">
     
-        <a href="/wps/portal/empresas/Home/circulo-pyme" class="logo" style="background-image: url(&quot;https://www.banorte.com/cms/banorte/imagenes/logo_circulo_pyme.png&quot;); p-0  m-0 display: block; height: 60; width: 290px; background-size: 280px 85px; background-repeat: no-repeat; background-position: center center;"><span style="opacity:0!important;">Pagina inicio</span></a>
+        <a href="{{ route('home') }}" class="logo" style="background-image: url(&quot;https://www.banorte.com/cms/banorte/imagenes/logo_circulo_pyme.png&quot;); p-0  m-0 display: block; height: 60; width: 290px; background-size: 280px 85px; background-repeat: no-repeat; background-position: center center;"><span style="opacity:0!important;">Pagina inicio</span></a>
 
         <ul class="flex space-x-8 ml-10">
             <li>

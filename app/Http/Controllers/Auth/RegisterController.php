@@ -4,49 +4,24 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\Account; // Importamos el modelo Account
+use App\Models\Account;
+use App\Models\Card; 
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str; 
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
     protected $redirectTo = '/home';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -56,12 +31,6 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
     protected function create(array $data)
     {
         // Crear el usuario
@@ -72,11 +41,32 @@ class RegisterController extends Controller
         ]);
 
         // Crear la cuenta asociada al usuario
-        $user->account()->create([
-            'saldo' => 0, // Saldo inicial (puedes ajustarlo según sea necesario)
-            'tipo_cuenta' => 'Ahorro', // Puedes cambiarlo a otro tipo de cuenta si es necesario
+        $account = $user->account()->create([
+            'saldo' => 0, // Saldo inicial
+            'tipo_cuenta' => 'Ahorro', // Tipo de cuenta
+        ]);
+
+        // Crear una tarjeta única asociada a la cuenta
+        $card = Card::create([
+            'account_id' => $account->id,
+            'numero_tarjeta' => $this->generarNumeroTarjetaMasterCard(), 
+            'tipo_tarjeta' => 'debito',
+            'fecha_expiracion' => now()->addYears(4), 
+            'cvv' => rand(100, 999), 
         ]);
 
         return $user;
+    }
+
+    // Método para generar un número de tarjeta único con formato MasterCard
+    protected function generarNumeroTarjetaMasterCard()
+    {
+        do {
+            
+            $bin = rand(51, 55); 
+            $numero_tarjeta = $bin . str_pad(rand(0, 99999999999999), 14, '0', STR_PAD_LEFT); 
+        } while (Card::where('numero_tarjeta', $numero_tarjeta)->exists()); 
+
+        return $numero_tarjeta;
     }
 }
