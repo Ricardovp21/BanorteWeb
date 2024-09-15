@@ -5,8 +5,8 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-white shadow-sm py-4 px-8">
             <a class="flex items-center text-lg font-medium mr-8" href="#">
-                <img class="mr-3" src="./images/icon-money.svg" alt="Money Icon">
-                <span>Dashboard</span>
+               
+                <span>Bienvenido</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -42,15 +42,18 @@
     <main>
         <section class="bg-white border-b py-8">
             <div class="container mx-auto flex justify-between">
-                <div class="flex items-start">
-                    <svg class="mr-6" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
-                        <!-- SVG content -->
-                    </svg>
-                    <div>
-                        <h1 class="text-2xl font-normal mb-2">Hola, {{ $user->name }}!</h1>
-                    </div>
-                </div>
-            </div>
+            <div class="flex items-center">
+    
+    <div>
+        <h1 class="text-2xl font-normal mb-2">Hola, {{ $user->name }}!</h1>
+    </div>
+</div>
+<button class="btn-transferencia" onclick="window.location.href='/transferir'">
+    Realizar una transferencia
+</button>
+
+
+
         </section>
 
         <!-- Información de saldo real -->
@@ -114,13 +117,14 @@
                                                 <p class="text-gray-500">Expira: {{ $card->fecha_expiracion->format('m/Y') }}</p>
                                             </div>
                                             <div class="flex space-x-4">
-                                                <button class="show-hide-btn" data-card-id="{{ $card->id }}" onclick="toggleCardNumber({{ $card->id }})">
-                                                    Mostrar
-                                                </button>
-                                                <button class="copy-btn" onclick="copyToClipboard('card-{{ $card->id }}')">
-                                                    Copiar
-                                                </button>
-                                            </div>
+    <button class="btn-primario" data-card-id="{{ $card->id }}" onclick="toggleCardNumber({{ $card->id }})">
+        Mostrar
+    </button>
+    <button class="btn-secundario" onclick="copyToClipboard('card-{{ $card->id }}')">
+        Copiar
+    </button>
+</div>
+
                                         </div>
                                         <p class="mt-4">
                                             <span id="card-{{ $card->id }}" class="hidden-card">**** **** **** {{ substr($card->numero_tarjeta, -4) }}</span>
@@ -192,5 +196,55 @@
     .copy-btn:hover {
         opacity: 0.8;
     }
+    .btn-transferencia {
+    font-family: 'Gotham Medium', sans-serif;
+    font-size: 15px;
+    color: #FFFFFF;
+    background-color: #EB0029; 
+    padding: 5px 10px; 
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block; 
+}
+
+.btn-transferencia:hover {
+    background-color: #DB0026; /* Color de fondo al pasar el mouse */
+}
+
+    .btn-primario {
+    font-family: 'Gotham Medium', sans-serif;
+    font-size: 15px;
+    color: #FFFFFF;
+    background-color: #EB0029;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primario:hover {
+    background-color: #DB0026;
+}
+.btn-secundario {
+    font-family: 'Gotham Medium', sans-serif;
+    font-size: 15px; /* Ajusta el tamaño según sea necesario */
+    color: #323E48;
+    background-color: transparent;
+    border: 2px solid #323E48;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+}
+
+.btn-secundario:hover {
+    color: #DB0026;
+    border-color: #DB0026;
+    background-color: transparent;
+}
+
 </style>
 @endsection
