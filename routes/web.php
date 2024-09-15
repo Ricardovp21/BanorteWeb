@@ -40,7 +40,7 @@ Route::post('/register/step2', [RegisterController::class, 'handleStep2'])->name
 // Route::get('/registerStepTwo', [RegisterController::class, 'registerStepTwo'])->name('registerStepTwo');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
